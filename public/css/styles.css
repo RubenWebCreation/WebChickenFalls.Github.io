@@ -27,6 +27,33 @@ html, body {
 }
 
 /* Encabezado */
+/* Estilos del menú principal */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #FF8C42;
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajustar el margen superior del body */
+body {
+    padding-top: 80px; /* Ajusta este valor según la altura de tu menú */
+}
+
+/* Estilos del contenido */
+.contenido {
+    position: relative;
+    z-index: 1;
+}
+
+/* Estilos del Rickroll */
+.rickroll {
+    position: relative;
+    z-index: 50;
+}
 header {
     background-color: #FF8C42; /* Naranja principal */
     color: #FFFFFF;

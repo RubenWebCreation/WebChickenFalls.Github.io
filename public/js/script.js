@@ -1,3 +1,10 @@
+// Ajustar el margen superior del body según la altura del menú
+const header = document.querySelector('header');
+if (header) {
+    const headerHeight = header.offsetHeight;
+    document.body.style.paddingTop = `${headerHeight}px`;
+}
+
 let cart = [];
 let total = 0;
 
