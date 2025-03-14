@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago con Tarjeta ChickenFalls</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <section id="pago-tarjeta">
+        <h2>Pago con Tarjeta</h2>
+        <div class="payment-icons">
+            <img src="images/visa.png" alt="Visa" class="payment-icon">
+            <img src="images/mastercard.png" alt="Mastercard" class="payment-icon">
+            <img src="images/amex.png" alt="American Express" class="payment-icon">
+            <!-- Añade más iconos según sea necesario -->
+        </div>
+        <form id="paymentForm">
+            <label for="card-name">Nombre en la Tarjeta:</label>
+            <input type="text" id="card-name" name="card-name" required>
+            
+            <label for="card-number">Número de la Tarjeta:</label>
+            <input type="text" id="card-number" name="card-number" required>
+            
+            <label for="card-expiry">Fecha de Expiración:</label>
+            <input type="text" id="card-expiry" name="card-expiry" placeholder="MM/AA" required>
+            
+            <label for="card-cvc">CVC:</label>
+            <input type="text" id="card-cvc" name="card-cvc" required>
+            
+            <button type="submit">Pagar</button>
+        </form>
+        <p id="paymentMessage"></p>
+    </section>
+    <script src="js/script.js"></script>
+</body>
+</html>

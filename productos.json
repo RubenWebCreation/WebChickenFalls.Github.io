@@ -1,0 +1,257 @@
+{
+    "productos": [
+        {
+            "id": 1,
+            "nombre": "Pollo Entero",
+            "categoria": "pollo",
+            "precio": 10.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 2,
+            "nombre": "Pechuga de Pollo",
+            "categoria": "pollo",
+            "precio": 7.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 3,
+            "nombre": "Muslos de Pollo",
+            "categoria": "pollo",
+            "precio": 6.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 4,
+            "nombre": "Alitas de Pollo",
+            "categoria": "alitas",
+            "precio": 5.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 5,
+            "nombre": "Huevos de Gallina",
+            "categoria": "huevos",
+            "precio": 3.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 6,
+            "nombre": "Pollo Orgánico",
+            "categoria": "pollo",
+            "precio": 15.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 7,
+            "nombre": "Pollo Campesino",
+            "categoria": "pollo",
+            "precio": 12.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 8,
+            "nombre": "Pollo Criollo",
+            "categoria": "pollo",
+            "precio": 11.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 9,
+            "nombre": "Pollo Ahumado",
+            "categoria": "pollo",
+            "precio": 13.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 10,
+            "nombre": "Pollo Frito",
+            "categoria": "pollo",
+            "precio": 9.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 11,
+            "nombre": "Pollo Asado",
+            "categoria": "pollo",
+            "precio": 12.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 12,
+            "nombre": "Pollo Broaster",
+            "categoria": "pollo",
+            "precio": 14.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 13,
+            "nombre": "Pollo a la Parrilla",
+            "categoria": "pollo",
+            "precio": 16.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 14,
+            "nombre": "Pollo al Horno",
+            "categoria": "pollo",
+            "precio": 13.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 15,
+            "nombre": "Pollo a la Brasa",
+            "categoria": "pollo",
+            "precio": 14.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 16,
+            "nombre": "Pollo al Curry",
+            "categoria": "pollo",
+            "precio": 15.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 17,
+            "nombre": "Pollo a la Naranja",
+            "categoria": "pollo",
+            "precio": 12.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 18,
+            "nombre": "Pollo al Limón",
+            "categoria": "pollo",
+            "precio": 11.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 19,
+            "nombre": "Alitas Picantes",
+            "categoria": "alitas",
+            "precio": 8.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 20,
+            "nombre": "Alitas BBQ",
+            "categoria": "alitas",
+            "precio": 9.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 21,
+            "nombre": "Alitas de Miel",
+            "categoria": "alitas",
+            "precio": 10.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        }
+    ],
+    "ofertas": [
+        {
+            "id": 11,
+            "nombre": "Pollo Asado + Papas",
+            "categoria": "pollo",
+            "precio": 12.00,
+            "precioAnterior": 15.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 12,
+            "nombre": "Alitas BBQ (12 unidades)",
+            "categoria": "alitas",
+            "precio": 10.00,
+            "precioAnterior": 12.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 13,
+            "nombre": "Pollo Broaster + Gaseosa",
+            "categoria": "pollo",
+            "precio": 14.00,
+            "precioAnterior": 17.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 14,
+            "nombre": "Nuggets de Pollo (20 unidades)",
+            "categoria": "pollo",
+            "precio": 8.00,
+            "precioAnterior": 10.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 15,
+            "nombre": "Pollo Criollo + Yuca",
+            "categoria": "pollo",
+            "precio": 13.00,
+            "precioAnterior": 16.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 16,
+            "nombre": "Pollo a la Parrilla + Arroz",
+            "categoria": "pollo",
+            "precio": 15.00,
+            "precioAnterior": 18.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 17,
+            "nombre": "Pollo Frito + Ensalada",
+            "categoria": "pollo",
+            "precio": 11.00,
+            "precioAnterior": 14.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 18,
+            "nombre": "Pollo Ahumado + Papas",
+            "categoria": "pollo",
+            "precio": 14.00,
+            "precioAnterior": 17.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 19,
+            "nombre": "Pollo al Curry + Arroz",
+            "categoria": "pollo",
+            "precio": 16.00,
+            "precioAnterior": 19.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 20,
+            "nombre": "Pollo a la Naranja + Ensalada",
+            "categoria": "pollo",
+            "precio": 13.00,
+            "precioAnterior": 16.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 21,
+            "nombre": "Pollo al Limón + Papas",
+            "categoria": "pollo",
+            "precio": 12.00,
+            "precioAnterior": 15.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 22,
+            "nombre": "Alitas Picantes + Salsa",
+            "categoria": "alitas",
+            "precio": 9.00,
+            "precioAnterior": 11.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 23,
+            "nombre": "Alitas de Miel + Papas",
+            "categoria": "alitas",
+            "precio": 11.00,
+            "precioAnterior": 13.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        }
+    ]
+}

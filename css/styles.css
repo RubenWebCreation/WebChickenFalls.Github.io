@@ -1,4 +1,16 @@
 /* Estilos generales */
+   /* Evitar desbordamiento horizontal en móviles */
+   html, body {
+    overflow-x: hidden; /* Oculta el desplazamiento horizontal */
+    width: 100%; /* Asegura que el body no exceda el ancho de la pantalla */
+}
+
+/* Asegurar que todos los elementos no sobrepasen la pantalla */
+* {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
 html, body {
     height: 100%;
     margin: 0;
@@ -604,150 +616,6 @@ footer {
     background-color: #FF6B35; /* Naranja oscuro */
 }
 
-/* Estilos para el Menú Hamburguesa */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    padding: 10px;
-}
-
-.hamburger .line {
-    width: 25px;
-    height: 3px;
-    background-color: #FFFFFF;
-    margin: 4px 0;
-    transition: all 0.3s ease;
-}
-
-/* Menú Hamburguesa activo */
-.hamburger.active .line:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.active .line:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active .line:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* Estilos para el menú en móviles */
-@media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        background-color: #FF8C42; /* Naranja principal */
-        position: absolute;
-        top: 80px;
-        right: 0;
-        width: 100%;
-        text-align: center;
-        z-index: 1000;
-        padding: 10px 0;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links li {
-        margin: 15px 0;
-    }
-
-    .nav-links li a {
-        color: #FFFFFF;
-        font-size: 1.2em;
-        padding: 10px;
-        display: block;
-        transition: background-color 0.3s ease;
-    }
-
-    .nav-links li a:hover {
-        background-color: #FF6B35; /* Naranja oscuro */
-    }
-}
-
-/* Estilos para el Menú Hamburguesa */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    padding: 10px;
-    position: fixed; /* Fijar en la pantalla */
-    top: 20px;
-    right: 20px;
-    z-index: 1001; /* Asegurar que esté por encima de otros elementos */
-}
-
-.hamburger .line {
-    width: 25px;
-    height: 3px;
-    background-color: #FFFFFF;
-    margin: 4px 0;
-    transition: all 0.3s ease;
-}
-
-/* Menú Hamburguesa activo */
-.hamburger.active .line:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.active .line:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active .line:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* Estilos para el menú en móviles */
-@media (max-width: 768px) {
-    .hamburger {
-        display: flex; /* Siempre visible en móvil */
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        background-color: #FF8C42; /* Naranja principal */
-        position: fixed; /* Fijar en la pantalla */
-        top: 80px;
-        right: 0;
-        width: 100%;
-        text-align: center;
-        z-index: 1000;
-        padding: 10px 0;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links li {
-        margin: 15px 0;
-    }
-
-    .nav-links li a {
-        color: #FFFFFF;
-        font-size: 1.2em;
-        padding: 10px;
-        display: block;
-        transition: background-color 0.3s ease;
-    }
-
-    .nav-links li a:hover {
-        background-color: #FF6B35; /* Naranja oscuro */
-    }
-}
-
 /* Estilos para hacer que solo el menú, el encabezado y el logo sigan al usuario */
 header {
     position: fixed;
@@ -861,8 +729,8 @@ body {
 }
 
 /* Botón de cerrar el carrito */
-.close-cart {
-    position: absolute;
+#close-cart {
+    position: fixed;
     top: 15px;
     right: 15px;
     background-color: #FF6B35;
@@ -873,21 +741,1012 @@ body {
     font-weight: bold;
     padding: 5px 8px;
     border-radius: 5px;
-    display: block;
+    display: none; /* Inicialmente oculto */
     z-index: 1070;
 }
 
-.close-cart:hover {
+#close-cart.visible {
+    display: block; /* Mostrar cuando tiene la clase 'visible' */
+}
+
+#close-cart:hover {
     background-color: #FF3D00;
 }
 
-/* Asegurar que el botón de finalizar compra sea visible */
+/* Asegurar que el botón de finalizar compra sea visible y alineado a la izquierda */
 #finalizar-compra {
     position: sticky;
     bottom: 10px;
-    background-color: white;
-    padding: 6px;
-    border-top: 2px solid #ddd;
-    text-align: center;
+    left: 10px; /* Mover el botón a la izquierda */
+    background-color: #FF8C42; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none;
+    padding: 10px 20px; /* Relleno */
+    cursor: pointer;
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición de color */
+    font-size: 1em; /* Tamaño de la fuente */
+    font-weight: bold; /* Negrita */
     z-index: 1070;
+    display: block;
+    text-align: center;
+}
+
+/* Asegurar que el botón de finalizar compra sea visible */
+#finalizar-compra-container {
+    text-align: left; /* Alinear el contenedor a la izquierda */
+}
+/* --------------------------------------------------------- */
+/* Estilos para la sección de Atención al Cliente */
+#atencion-cliente {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#atencion-cliente h2 {
+    text-align: center;
+    color: #FF8C42;
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+#atencion-cliente p {
+    text-align: center;
+    color: #555;
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+.contacto-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.info-contacto, .formulario-contacto {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.info-contacto h3, .formulario-contacto h3 {
+    color: #FF8C42;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.info-contacto ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-contacto ul li {
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 1em;
+}
+
+.redes-sociales {
+    margin-top: 15px;
+}
+
+.redes-sociales h3 {
+    color: #FF8C42;
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+.social-icon {
+    font-size: 1.5em;
+    margin-right: 10px;
+    color: #FF8C42;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #FF6B35;
+}
+
+.formulario-contacto .form-group {
+    margin-bottom: 15px;
+}
+
+.formulario-contacto label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 1em;
+}
+
+.formulario-contacto input, .formulario-contacto textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.formulario-contacto textarea {
+    resize: vertical;
+    min-height: 100px;
+    max-height: 200px;
+}
+
+.formulario-contacto button {
+    background-color: #FF8C42;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.formulario-contacto button:hover {
+    background-color: #FF6B35;
+}
+
+#responseMessage {
+    margin-top: 15px;
+    color: #333;
+    font-size: 1em;
+    text-align: center;
+}
+
+/* Estilos para el contenedor del mapa */
+.mapa-container {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.mapa-container h3 {
+    color: #FF8C42;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+.mapa-container iframe {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Media Queries para pantallas más grandes (tablets y desktop) */
+@media (min-width: 768px) {
+    #atencion-cliente h2 {
+        font-size: 2.5em;
+    }
+
+    #atencion-cliente p {
+        font-size: 1.1em;
+    }
+
+    .contacto-container {
+        flex-direction: row;
+    }
+
+    .info-contacto, .formulario-contacto {
+        width: auto;
+    }
+
+    .formulario-contacto button {
+        width: auto;
+    }
+}
+/* --------------------------------------------------------- */
+/* Estilos para la sección de Reseñas */
+#reseñas {
+    padding: 40px 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#reseñas h2 {
+    text-align: center;
+    color: #FF8C42;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+#reseñas p {
+    text-align: center;
+    color: #555;
+    font-size: 1.1em;
+    margin-bottom: 40px;
+}
+
+/* Contenedor de Reseñas */
+.reseñas-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+/* Estilos para cada reseña */
+.reseña {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reseña-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.reseña-nombre {
+    font-weight: bold;
+    color: #333;
+}
+
+.reseña-calificacion {
+    color: #FF8C42;
+    font-size: 1.2em;
+}
+
+.reseña-comentario {
+    color: #555;
+    font-size: 1em;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.reseña-fecha {
+    color: #888;
+    font-size: 0.9em;
+}
+
+/* Formulario para añadir reseñas */
+.formulario-reseña {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.formulario-reseña h3 {
+    color: #FF8C42;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+.formulario-reseña .form-group {
+    margin-bottom: 15px;
+}
+
+.formulario-reseña label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 1.1em;
+}
+
+.formulario-reseña input, .formulario-reseña select, .formulario-reseña textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.formulario-reseña textarea {
+    resize: vertical;
+    min-height: 100px;
+    max-height: 200px;
+}
+
+.formulario-reseña button {
+    background-color: #FF8C42;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.formulario-reseña button:hover {
+    background-color: #FF6B35;
+}
+
+/* Media Queries para móviles */
+@media (max-width: 768px) {
+    #reseñas h2 {
+        font-size: 2em;
+    }
+
+    #reseñas p {
+        font-size: 1em;
+    }
+
+    .reseñas-container {
+        grid-template-columns: 1fr;
+    }
+
+    .reseña {
+        padding: 15px;
+    }
+
+    .reseña-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .reseña-calificacion {
+        margin-top: 10px;
+    }
+
+    .formulario-reseña {
+        padding: 15px;
+    }
+
+    .formulario-reseña h3 {
+        font-size: 1.5em;
+    }
+}
+/* --------------------------------------------------------- */
+/* PRODUCTOS */
+/* --------------------------------------------------------- */
+.old-price {
+    text-decoration: line-through;
+    color: #888;
+    margin-right: 10px;
+}
+
+.price {
+    color: #e74c3c;
+    font-weight: bold;
+}
+/* --------------------------------------------------------- */
+/* Estilos para la página de pago con tarjeta */
+#pago-tarjeta {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-width: 500px;
+    margin: 0 auto; /* Centrar la sección horizontalmente */
+    background-color: #f9f9f9; /* Fondo suave */
+}
+
+#pago-tarjeta h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.payment-icons {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.payment-icons img {
+    width: 50px; /* Ajusta el tamaño según sea necesario */
+    margin: 0 10px; /* Espacio entre los iconos */
+}
+
+#pago-tarjeta form {
+    display: flex;
+    flex-direction: column;
+}
+
+#pago-tarjeta label {
+    margin-bottom: 5px;
+}
+
+#pago-tarjeta input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em; /* Ajustar tamaño de la fuente */
+}
+
+#pago-tarjeta button {
+    background-color: #FF8C42;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 1em;
+    font-weight: bold; /* Negrita */
+}
+
+#pago-tarjeta button:hover {
+    background-color: #FF6B35;
+}
+
+#paymentMessage {
+    margin-top: 10px;
+    color: green;
+    text-align: center;
+}
+/* ---------------------------------------------------- */
+/* MOVIL */
+/* ---------------------------------------------------- */
+/* Ajustes para el menú hamburguesa en móviles */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+}
+
+.hamburger .line {
+    width: 25px;
+    height: 3px;
+    background-color: #FFFFFF;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+/* Menú Hamburguesa activo */
+.hamburger.active .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Estilos para el menú en móviles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #FF8C42;
+        position: fixed;
+        top: 80px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        z-index: 1000;
+        padding: 10px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    .nav-links li a {
+        color: #FFFFFF;
+        font-size: 1.2em;
+        padding: 10px;
+        display: block;
+        transition: background-color 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+        background-color: #FF6B35;
+    }
+}
+
+/* Estilos para el carrusel en móviles */
+@media (max-width: 768px) {
+    .carousel {
+        max-width: 100%;
+    }
+
+    .carousel-caption {
+        bottom: 10px;
+        left: 10px;
+        padding: 10px;
+        max-width: 90%;
+    }
+
+    .carousel-caption h3 {
+        font-size: 1.2em;
+    }
+
+    .carousel-caption p {
+        font-size: 0.9em;
+    }
+
+    .carousel-caption button {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+        gap: 20px; /* Espacio entre productos */
+        padding: 15px; /* Padding lateral para centrar el contenido */
+        max-width: 100%; /* Asegurar que no se salga de la pantalla */
+    }
+
+    .product {
+        padding: 15px; /* Espacio interno */
+        text-align: center;
+        border: 1px solid #ddd; /* Borde sutil */
+        border-radius: 10px; /* Bordes redondeados */
+        background-color: #fff; /* Fondo blanco */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        height: 340px; /* Altura fija para todos los productos */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .product img {
+        width: 100%; /* La imagen ocupa el 100% del contenedor */
+        height: 140px; /* Altura fija para las imágenes */
+        object-fit: cover; /* Ajusta la imagen sin deformarla */
+        border-radius: 10px; /* Bordes redondeados */
+        margin-bottom: 10px; /* Espacio debajo de la imagen */
+    }
+
+    .product h3 {
+        font-size: 1em; /* Tamaño de fuente */
+        margin: 10px 0; /* Espacio arriba y abajo del título */
+    }
+
+    .product p {
+        font-size: 0.9em; /* Tamaño de fuente */
+        margin: 6px 0; /* Espacio arriba y abajo del precio */
+    }
+
+    .product button {
+        padding: 8px 16px; /* Padding */
+        font-size: 0.9em; /* Tamaño de fuente */
+        width: 100%; /* Botón ocupa todo el ancho */
+        margin-top: 10px; /* Espacio arriba del botón */
+        background-color: #FF8C42; /* Color naranja */
+        color: #fff; /* Texto blanco */
+        border: none;
+        border-radius: 5px; /* Bordes redondeados */
+        cursor: pointer;
+        transition: background-color 0.3s ease; /* Transición suave */
+    }
+
+    .product button:hover {
+        background-color: #FF6B35; /* Color naranja oscuro al pasar el mouse */
+    }
+}
+
+/* --------------------------------------------- */
+/* --------------------------------------------- */
+
+/* Estilos para el formulario de contacto en móviles */
+@media (max-width: 768px) {
+    #contactForm {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #contactForm input, #contactForm textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 1em;
+    }
+
+    #contactForm button {
+        width: 100%;
+        padding: 10px;
+        font-size: 1em;
+    }
+}
+
+/* Estilos para las reseñas en móviles */
+@media (max-width: 768px) {
+    .reseña {
+        padding: 10px;
+    }
+
+    .reseña h4 {
+        font-size: 1.2em;
+    }
+
+    .reseña p {
+        font-size: 0.9em;
+    }
+
+    #form-reseña {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #form-reseña input, #form-reseña select, #form-reseña textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 1em;
+    }
+
+    #form-reseña button {
+        width: 100%;
+        padding: 10px;
+        font-size: 1em;
+    }
+}
+
+/* Estilos para el footer en móviles */
+@media (max-width: 768px) {
+    footer {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}
+
+/* Estilos para las notificaciones en móviles */
+@media (max-width: 768px) {
+    .notificacion {
+        top: 70px;
+        right: 10px;
+        left: 10px;
+        width: calc(100% - 20px);
+        text-align: center;
+    }
+}
+
+/* Estilos para el botón de finalizar compra en móviles */
+@media (max-width: 768px) {
+    #finalizar-compra {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 15px;
+        font-size: 1.2em;
+        border-radius: 0;
+    }
+}
+
+/* Estilos para el botón de cerrar carrito en móviles */
+@media (max-width: 768px) {
+    #close-cart {
+        top: 10px;
+        right: 10px;
+        font-size: 1.5em;
+    }
+}
+
+/* Estilos para el botón de abrir carrito en móviles */
+@media (max-width: 768px) {
+    #toggle-cart {
+        top: 10px;
+        right: 10px;
+        font-size: 1.5em;
+    }
+}
+
+/* Estilos para el filtrado de productos en móviles */
+@media (max-width: 768px) {
+    .filtros {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .filtros select, .filtros input {
+        width: 100%;
+        padding: 10px;
+        font-size: 1em;
+    }
+
+    .filtros button {
+        width: 100%;
+        padding: 10px;
+        font-size: 1em;
+    }
+}
+/* Menú Hamburguesa */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+}
+
+.hamburger .line {
+    width: 25px;
+    height: 3px;
+    background-color: #FFFFFF;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+/* Menú Hamburguesa activo */
+.hamburger.active .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Estilos para el menú en móviles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #FF8C42;
+        position: fixed;
+        top: 80px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        z-index: 1000;
+        padding: 10px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    .nav-links li a {
+        color: #FFFFFF;
+        font-size: 1.2em;
+        padding: 10px;
+        display: block;
+        transition: background-color 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+        background-color: #FF6B35;
+    }
+}
+/* Menú Hamburguesa en móviles */
+@media (max-width: 768px) {
+    .hamburger {
+        top: 15px; /* Mover un poco más arriba */
+        right: 15px; /* Mover un poco más a la izquierda */
+        padding: 8px; /* Reducir el padding */
+    }
+
+    .hamburger .line {
+        width: 20px; /* Reducir el ancho de las líneas */
+        height: 2px; /* Reducir el grosor de las líneas */
+        margin: 3px 0; /* Reducir el espacio entre líneas */
+    }
+
+    .nav-links {
+        top: 60px; /* Mover el menú más cerca del botón de hamburguesa */
+        padding: 5px 0; /* Reducir el padding interno */
+    }
+
+    .nav-links li {
+        margin: 10px 0; /* Reducir el espacio entre elementos del menú */
+    }
+
+    .nav-links li a {
+        font-size: 1em; /* Reducir el tamaño de la fuente */
+        padding: 8px; /* Reducir el padding de los enlaces */
+    }
+}
+/* --------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    section {
+        margin: 10px; /* Reducir el margen de las secciones */
+        padding: 15px; /* Reducir el padding de las secciones */
+    }
+
+    .product-grid, .offer-grid {
+        grid-template-columns: repeat(1, 1fr); /* Una columna en móviles */
+        gap: 10px; /* Reducir el espacio entre productos */
+    }
+
+    .product, .offer {
+        padding: 10px; /* Reducir el padding de los productos */
+    }
+
+    .product img, .offer img {
+        height: 120px; /* Reducir la altura de las imágenes */
+    }
+
+    .product h3, .offer h3 {
+        font-size: 1em; /* Reducir el tamaño del título */
+    }
+
+    .product p, .offer p {
+        font-size: 0.8em; /* Reducir el tamaño del texto */
+    }
+}
+@media (max-width: 768px) {
+    header {
+        padding: 10px 0; /* Reducir el padding del header */
+    }
+
+    .logo {
+        max-width: 60px; /* Reducir el tamaño del logo */
+    }
+
+    .hamburger {
+        top: 10px; /* Ajustar la posición del botón de hamburguesa */
+    }
+}
+@media (max-width: 768px) {
+    header {
+        padding: 10px 0; /* Reducir el padding del header */
+    }
+
+    .logo {
+        max-width: 60px; /* Reducir el tamaño del logo */
+    }
+
+    .hamburger {
+        top: 10px; /* Ajustar la posición del botón de hamburguesa */
+    }
+}
+/* ----------------------------------------------------------------- */
+@media (max-width: 768px) {
+    header {
+        padding: 8px 0; /* Reducir el padding del header */
+        height: 50px; /* Altura fija para el header */
+        position: fixed; /* Fijar el header en la parte superior */
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 140, 66, 0.9); /* Fondo semitransparente */
+        z-index: 1000; /* Asegurar que esté por encima del contenido */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    }
+
+    .logo {
+        max-width: 50px; /* Reducir el tamaño del logo */
+    }
+
+    .hamburger {
+        top: 15px; /* Mover el botón de hamburguesa un poco más abajo */
+        right: 15px;
+    }
+}
+@media (max-width: 768px) {
+    .nav-links {
+        top: 50px; /* Posicionar el menú debajo del header */
+        right: 0;
+        width: 100%;
+        background-color: #FF8C42;
+        padding: 10px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 999; /* Asegurar que esté por debajo del header */
+    }
+
+    .nav-links li a {
+        font-size: 1em; /* Reducir el tamaño de la fuente */
+        padding: 8px; /* Reducir el padding de los enlaces */
+    }
+}
+@media (max-width: 768px) {
+    .main-container {
+        padding-top: 60px; /* Añadir espacio para el header fijo */
+    }
+}
+@media (max-width: 768px) {
+    .hamburger {
+        top: 10px; /* Mover el botón de hamburguesa hacia abajo */
+        right: 10px;
+    }
+}
+/* ---------------------------------------------------------------- */
+/* Evitar desbordamiento horizontal en móviles */
+body {
+    overflow-x: hidden; /* Oculta el desplazamiento horizontal */
+    width: 100%; /* Asegura que el body no exceda el ancho de la pantalla */
+}
+
+/* Asegurar que todos los elementos se ajusten al ancho de la pantalla */
+@media (max-width: 768px) {
+    .main-container, header, section, .product-grid, .offer-grid, .carousel, .reseñas-container, .contacto-container, .mapa-container {
+        max-width: 100%; /* Limitar el ancho al 100% del viewport */
+        padding-left: 10px; /* Reducir el padding lateral */
+        padding-right: 10px; /* Reducir el padding lateral */
+    }
+
+    /* Asegurar que las imágenes no desborden */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Ajustar el carrusel para móviles */
+    .carousel {
+        max-width: 100%;
+        overflow: hidden; /* Evitar desbordamiento */
+    }
+
+    /* Ajustar el padding de las secciones */
+    section {
+        margin: 10px 0; /* Reducir el margen lateral */
+        padding: 15px; /* Reducir el padding */
+    }
+}
+
+/* Filtro fijo en la parte superior */
+#filtrado-fijo {
+    position: sticky;
+    top: 60px; /* Ajustar según la altura del header */
+    background-color: #fff;
+    padding: 10px;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajustar el diseño de los productos en móviles */
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en móviles */
+        gap: 10px; /* Reducir el espacio entre productos */
+    }
+
+    .product {
+        padding: 10px; /* Reducir el padding */
+        height: auto; /* Altura automática */
+    }
+
+    .product img {
+        height: 120px; /* Reducir la altura de las imágenes */
+    }
+
+    .product h3 {
+        font-size: 1em; /* Reducir el tamaño del título */
+    }
+
+    .product p {
+        font-size: 0.9em; /* Reducir el tamaño del texto */
+    }
+
+    .product button {
+        padding: 8px; /* Reducir el padding del botón */
+        font-size: 0.9em; /* Reducir el tamaño de la fuente */
+    }
 }
