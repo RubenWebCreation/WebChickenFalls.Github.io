@@ -534,3 +534,29 @@ document.getElementById('form-reseña').addEventListener('submit', function (eve
 // Cargar las reseñas al iniciar la página
 document.addEventListener('DOMContentLoaded', loadReseñas);
 // ----------------------------------------------------------------
+// Cargar productos desde el JSON
+function loadProductos() {
+    fetch('/productos.json')
+        .then(response => response.json())
+        .then(data => {
+            const productGrid = document.getElementById('product-grid');
+            productGrid.innerHTML = ''; // Limpiar el contenedor antes de cargar
+
+            data.productos.forEach(producto => {
+                const productItem = document.createElement('div');
+                productItem.className = 'product';
+                productItem.setAttribute('data-categoria', producto.categoria);
+                productItem.innerHTML = `
+                    <img src="${producto.imagen}" alt="${producto.nombre}">
+                    <h3>${producto.nombre}</h3>
+                    <p class="price">€${producto.precio.toFixed(2)}</p>
+                    <button onclick="addToCart('${producto.nombre}', ${producto.precio})">Añadir al Carrito</button>
+                `;
+                productGrid.appendChild(productItem);
+            });
+        })
+        .catch(error => console.error('Error cargando los productos:', error));
+}
+
+// Cargar productos al iniciar la página
+document.addEventListener('DOMContentLoaded', loadProductos);

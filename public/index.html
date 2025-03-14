@@ -20,7 +20,7 @@
                 <li><a href="#ofertas" onclick="cerrarMenu()">Ofertas</a></li>
                 <li><a href="#reseñas" onclick="cerrarMenu()">Reseñas</a></li>
                 <li>
-                    <a href="#carrito" id="cart-icon" onclick="cerrarMenu()"></a>
+                    <a href="#carrito" id="cart-icon" onclick="toggleCart()">
                         🛒 Carrito (<span id="cart-count">0</span>)
                     </a>
                 </li>
@@ -78,19 +78,17 @@
     </div>
      </section>
 
-    <!-- Sección del Carrito -->
-    <section id="carrito" class="cart-section">
+    <!-- Sección del carrito -->
+<section id="carrito" class="cart-section">
     <h2>Tu Carrito</h2>
-    <!-- Botón de cierre del carrito -->
-    <button id="close-cart" class="close-cart" onclick="cerrarCarrito()">✖</button>
+    <button id="close-cart" class="close-cart" onclick="toggleCart()">✖</button>
     <div id="cart-items">
         <!-- Los productos añadidos al carrito aparecerán aquí -->
     </div>
     <p>Total: €<span id="cart-total">0.00</span></p>
-    <div id="finalizar-compra-container">
-        <button id="finalizar-compra" onclick="checkout()">Finalizar Compra</button>
-    </div>
-    </section>
+    <button id="finalizar-compra" onclick="checkout()">Finalizar Compra</button>
+</section>
+
 
   <!-- Sección de Reseñas -->
 <section id="reseñas">

@@ -193,6 +193,7 @@ section:hover {
 }
 
 /* Carrito */
+/* -----------------------------------------------*/
 .cart-section {
     display: none;
     position: fixed;
