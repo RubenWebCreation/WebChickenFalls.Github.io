@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChickenFalls</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo Pollos Frescos Online" class="logo">
+        </div>
+        <h1>ChickenFalls</h1>
+        <nav>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#atencion-cliente" onclick="cerrarMenu()">Atención al Cliente</a></li>
+                <li><a href="#productos" onclick="cerrarMenu()">Productos</a></li>
+                <li><a href="#ofertas" onclick="cerrarMenu()">Ofertas</a></li>
+                <li>
+                    <a href="#carrito" id="cart-icon" onclick="cerrarMenu()">
+                        🛒 Carrito (<span id="cart-count">0</span>)
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+    </header>
+   
+
+<!-- Contenedor de Notificaciones -->
+<div id="notificacion" class="notificacion">
+    <span id="notificacion-texto"></span>
+</div>
+<!-- ----------------------------- -->
+<button id="close-cart" class="close-cart">✖</button>
+<!-- ----------------------------- -->
+    <!-- Ofertas -->
+    <section id="ofertas">
+        <h2>Ofertas Flash</h2>
+        <div class="carousel">
+            <div class="carousel-inner">
+           <!-- Corrección en todas las ofertas -->
+<div class="carousel-item">
+    <img src="https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80" alt="Oferta Pollo Asado">
+    <div class="carousel-caption">
+        <h3>Pollo Asado + Papas</h3>
+        <p>Disfruta de un pollo asado con papas fritas por solo €12.00.</p>
+        <p>
+            <span class="old-price">€15.00</span>
+            <span class="price">€12.00</span>
+        </p>
+        <button onclick="addToCart(this.getAttribute('data-name'), parseFloat(this.getAttribute('data-price')))" data-name="Pollo Asado + Papas" data-price="12.00">
+            Añadir al Carrito
+        </button>
+    </div>
+</div>
+
+<div class="carousel-item">
+    <img src="https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80" alt="Oferta Alitas BBQ">
+    <div class="carousel-caption">
+        <h3>Alitas BBQ (12 unidades)</h3>
+        <p>12 alitas de pollo BBQ por solo €10.00.</p>
+        <p>
+            <span class="old-price">€12.00</span>
+            <span class="price">€10.00</span>
+        </p>
+        <button onclick="addToCart(this.getAttribute('data-name'), parseFloat(this.getAttribute('data-price')))" data-name="Alitas BBQ (12 unidades)" data-price="10.00">
+            Añadir al Carrito
+        </button>
+    </div>
+</div>
+
+<div class="carousel-item">
+    <img src="https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80" alt="Oferta Pollo Broaster">
+    <div class="carousel-caption">
+        <h3>Pollo Broaster + Gaseosa</h3>
+        <p>Pollo broaster con gaseosa grande por solo €14.00.</p>
+        <p>
+            <span class="old-price">€17.00</span>
+            <span class="price">€14.00</span>
+        </p>
+        <button onclick="addToCart(this.getAttribute('data-name'), parseFloat(this.getAttribute('data-price')))" data-name="Pollo Broaster + Gaseosa" data-price="14.00">
+            Añadir al Carrito
+        </button>
+    </div>
+</div>
+
+<div class="carousel-item">
+    <img src="https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80" alt="Oferta Nuggets de Pollo">
+    <div class="carousel-caption">
+        <h3>Nuggets de Pollo (20 unidades)</h3>
+        <p>20 nuggets de pollo crujientes por €8.00.</p>
+        <p>
+            <span class="old-price">€10.00</span>
+            <span class="price">€8.00</span>
+        </p>
+        <button onclick="addToCart(this.getAttribute('data-name'), parseFloat(this.getAttribute('data-price')))" data-name="Nuggets de Pollo (20 unidades)" data-price="8.00">
+            Añadir al Carrito
+        </button>
+    </div>
+</div>
+
+<div class="carousel-item">
+    <img src="https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80" alt="Oferta Pollo Criollo">
+    <div class="carousel-caption">
+        <h3>Pollo Criollo + Yuca</h3>
+        <p>Pollo criollo con yuca frita por solo €13.00.</p>
+        <p>
+            <span class="old-price">€16.00</span>
+            <span class="price">€13.00</span>
+        </p>
+        <button onclick="addToCart(this.getAttribute('data-name'), parseFloat(this.getAttribute('data-price')))" data-name="Pollo Criollo + Yuca" data-price="13.00">
+            Añadir al Carrito
+        </button>
+    </div>
+</div>
+
+<div class="carousel-item">
+    <img src="https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80" alt="Oferta Pollo a la Parrilla">
+    <div class="carousel-caption">
+        <h3>Pollo a la Parrilla + Arroz</h3>
+        <p>Pollo a la parrilla con arroz por solo €15.00.</p>
+        <p>
+            <span class="old-price">€18.00</span>
+            <span class="price">€15.00</span>
+        </p>
+        <button onclick="addToCart(this.getAttribute('data-name'), parseFloat(this.getAttribute('data-price')))" data-name="Pollo a la Parrilla + Arroz" data-price="15.00">
+            Añadir al Carrito
+        </button>
+    </div>
+</div>
+
+        </div>
+        
+        <!-- Controles del Carrusel -->
+        <button class="carousel-control prev" onclick="moveCarousel(-1)">&#10094;</button>
+        <button class="carousel-control next" onclick="moveCarousel(1)">&#10095;</button>
+    </div>
+</section>
+ <!-- Sección de Filtrado -->
+<section id="filtrado">
+    <h2>Filtrar Productos</h2>
+    <div class="filtros">
+        <label for="categoria">Categoría:</label>
+        <select id="categoria">
+            <option value="todos">Todos</option>
+            <option value="pollo">Pollo</option>
+            <option value="alitas">Alitas</option>
+            <option value="huevos">Huevos</option>
+        </select>
+
+        <label for="precio">Precio máximo:</label>
+        <input type="number" id="precio" min="0" placeholder="Precio máximo">
+
+        <button onclick="filtrarProductos()">Filtrar</button>
+    </div>
+</section>
+<!-- Productos -->
+    <section id="productos">
+        <h2>Nuestros Productos</h2>
+        <div class="product-grid">
+           <!-- Sección de Productos -->
+<section id="productos">
+    <h2>Nuestros Productos</h2>
+    <div class="product-grid">
+        <!-- Producto 1 -->
+        <div class="product" data-categoria="pollo">
+            <img src="https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80" alt="Pollo Entero">
+            <h3>Pollo Entero</h3>
+            <p class="price">€10.00</p>
+            <button onclick="addToCart('Pollo Entero', 10.00)">Añadir al Carrito</button>
+        </div>
+
+        <!-- Producto 2 -->
+        <div class="product" data-categoria="pollo">
+            <img src="https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80" alt="Pechuga de Pollo">
+            <h3>Pechuga de Pollo</h3>
+            <p class="price">€7.00</p>
+            <button onclick="addToCart('Pechuga de Pollo', 7.00)">Añadir al Carrito</button>
+        </div>
+
+        <!-- Producto 3 -->
+        <div class="product" data-categoria="pollo">
+            <img src="https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80" alt="Muslos de Pollo">
+            <h3>Muslos de Pollo</h3>
+            <p class="price">€6.00</p>
+            <button onclick="addToCart('Muslos de Pollo', 6.00)">Añadir al Carrito</button>
+        </div>
+
+        <!-- Producto 4 -->
+        <div class="product" data-categoria="alitas">
+            <img src="https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80" alt="Alitas de Pollo">
+            <h3>Alitas de Pollo</h3>
+            <p class="price">€5.00</p>
+            <button onclick="addToCart('Alitas de Pollo', 5.00)">Añadir al Carrito</button>
+        </div>
+
+        <!-- Producto 5 -->
+        <div class="product" data-categoria="huevos">
+            <img src="https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80" alt="Huevos de Gallina">
+            <h3>Huevos de Gallina</h3>
+            <p class="price">€3.00</p>
+            <button onclick="addToCart('Huevos de Gallina', 3.00)">Añadir al Carrito</button>
+        </div>
+
+        <!-- Producto 6 -->
+        <div class="product" data-categoria="pollo">
+            <img src="https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80" alt="Pollo Orgánico">
+            <h3>Pollo Orgánico</h3>
+            <p class="price">€15.00</p>
+            <button onclick="addToCart('Pollo Orgánico', 15.00)">Añadir al Carrito</button>
+        </div>
+
+        <!-- Producto 7 -->
+        <div class="product" data-categoria="pollo">
+            <img src="https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80" alt="Pollo Campesino">
+            <h3>Pollo Campesino</h3>
+            <p class="price">€12.00</p>
+            <button onclick="addToCart('Pollo Campesino', 12.00)">Añadir al Carrito</button>
+        </div>
+
+        <!-- Producto 8 -->
+        <div class="product" data-categoria="pollo">
+            <img src="https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80" alt="Pollo Criollo">
+            <h3>Pollo Criollo</h3>
+            <p class="price">€11.00</p>
+            <button onclick="addToCart('Pollo Criollo', 11.00)">Añadir al Carrito</button>
+        </div>
+
+        <!-- Producto 9 -->
+        <div class="product" data-categoria="pollo">
+            <img src="https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80" alt="Pollo Ahumado">
+            <h3>Pollo Ahumado</h3>
+            <p class="price">€13.00</p>
+            <button onclick="addToCart('Pollo Ahumado', 13.00)">Añadir al Carrito</button>
+        </div>
+
+        <!-- Producto 10 -->
+        <div class="product" data-categoria="pollo">
+            <img src="https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80" alt="Pollo Frito">
+            <h3>Pollo Frito</h3>
+            <p class="price">€9.00</p>
+            <button onclick="addToCart('Pollo Frito', 9.00)">Añadir al Carrito</button>
+        </div>
+    </div>
+</section>
+        </div>
+    </section>
+    <!-- Sección del Carrito -->
+    <section id="carrito" class="cart-section">
+        <h2>Tu Carrito</h2>
+        <div id="cart-items">
+            <!-- Los productos añadidos al carrito aparecerán aquí -->
+        </div>
+        <p>Total: €<span id="cart-total">0.00</span></p>
+        <button onclick="checkout()">Finalizar Compra</button>
+    </section>
+
+<!-- Sección de Reseñas -->
+<section id="reseñas">
+    <h2>Reseñas de Clientes</h2>
+    <div id="lista-reseñas">
+        <!-- Las reseñas se añadirán aquí dinámicamente -->
+    </div>
+    <form id="form-reseña">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required>
+
+        <label for="calificacion">Calificación:</label>
+        <select id="calificacion" required>
+            <option value="5">⭐️⭐️⭐️⭐️⭐️</option>
+            <option value="4">⭐️⭐️⭐️⭐️</option>
+            <option value="3">⭐️⭐️⭐️</option>
+            <option value="2">⭐️⭐️</option>
+            <option value="1">⭐️</option>
+        </select>
+
+        <label for="comentario">Comentario:</label>
+        <textarea id="comentario" required></textarea>
+
+        <button type="submit">Enviar Reseña</button>
+    </form>
+</section>
+    <section id="atencion-cliente">
+        <h2>Atención al Cliente</h2>
+        <p>¿Necesitas ayuda? Contáctanos:</p>
+        <form id="contactForm">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Enviar</button>
+        </form>
+        <p id="responseMessage"></p>
+    </section>
+
+    <!-- Sección del Carrito -->
+<section id="carrito" class="cart-section">
+    <h2>Tu Carrito</h2>
+    <div id="cart-items">
+        <!-- Los productos añadidos al carrito aparecerán aquí -->
+    </div>
+    <div id="finalizar-compra">
+        <p>Total: $<span id="cart-total">0.00</span></p>
+        <button onclick="checkout()">Finalizar Compra</button>
+    </div>
+</section>
+
+    <footer>
+        <p>&copy; 2025 Pollos Frescos Online. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

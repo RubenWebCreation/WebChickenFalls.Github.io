@@ -1,0 +1,893 @@
+/* Estilos generales */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #F4F4F4;
+    color: #333333;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Encabezado */
+header {
+    background-color: #FF8C42; /* Naranja principal */
+    color: #FFFFFF;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.logo {
+    max-width: 100px;
+    height: auto;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #FF6B35; /* Naranja oscuro */
+}
+
+/* Menú Hamburguesa */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger .line {
+    width: 25px;
+    height: 3px;
+    background-color: #FFFFFF;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #FF8C42; /* Naranja principal */
+        position: absolute;
+        top: 80px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    .nav-links li a {
+        color: #FFFFFF;
+        font-size: 1.2em;
+    }
+}
+
+/* Secciones */
+section {
+    padding: 20px;
+    margin: 20px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+}
+
+/* Productos y Ofertas */
+.product-grid, .offer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.product, .offer {
+    border: 1px solid #DDDDDD;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover, .offer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.product img, .offer img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.product h3, .offer h3 {
+    margin: 10px 0;
+    color: #FF8C42; /* Naranja principal */
+}
+
+.product p, .offer p {
+    margin: 5px 0;
+    color: #333333;
+}
+
+.product .price, .offer .price {
+    font-weight: bold;
+    color: #FF6B35; /* Naranja oscuro */
+    font-size: 1.2em;
+}
+
+.offer .old-price {
+    text-decoration: line-through;
+    color: #999999;
+    font-size: 0.9em;
+    margin-right: 5px;
+}
+
+.product button, .offer button {
+    background-color: #FF8C42; /* Naranja principal */
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.product button:hover, .offer button:hover {
+    background-color: #FF6B35; /* Naranja oscuro */
+}
+
+/* Carrito */
+.cart-section {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #FFFFFF;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.cart-section h2 {
+    margin-top: 0;
+    color: #FF8C42; /* Naranja principal */
+}
+
+#cart-items {
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #F4F4F4;
+    border-radius: 5px;
+}
+
+.cart-item button {
+    background-color: #FF6B35; /* Naranja oscuro */
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.cart-item button:hover {
+    background-color: #FF4500; /* Naranja más oscuro */
+}
+
+#cart-icon {
+    position: relative;
+    color: #FFFFFF;
+}
+
+#cart-count {
+    background-color: #FF6B35; /* Naranja oscuro */
+    color: #FFFFFF;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-size: 0.8em;
+}
+
+/* Footer */
+footer {
+    background-color: #333333;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.product, .offer {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Estilos para el Carrusel */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* Ajusta el tamaño según necesites */
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    min-width: 100%;
+    position: relative;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: left;
+    max-width: 80%;
+}
+
+.carousel-caption h3 {
+    margin: 0;
+    color: #FF8C42; /* Naranja principal */
+}
+
+.carousel-caption p {
+    margin: 5px 0;
+    color: #333333;
+}
+
+.carousel-caption .old-price {
+    text-decoration: line-through;
+    color: #999999;
+    font-size: 0.9em;
+    margin-right: 5px;
+}
+
+.carousel-caption .price {
+    font-weight: bold;
+    color: #FF6B35; /* Naranja oscuro */
+    font-size: 1.2em;
+}
+
+.carousel-caption button {
+    background-color: #FF8C42; /* Naranja principal */
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-caption button:hover {
+    background-color: #FF6B35; /* Naranja oscuro */
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #FFFFFF;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.5em;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-control:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-control.prev {
+    left: 10px;
+}
+
+.carousel-control.next {
+    right: 10px;
+}
+
+/* Estilos para el Filtrado */
+#filtrado {
+    padding: 20px;
+    margin: 20px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.filtros {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filtros label {
+    font-weight: bold;
+}
+
+.filtros select, .filtros input {
+    padding: 5px;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+}
+
+.filtros button {
+    background-color: #FF8C42; /* Naranja principal */
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.filtros button:hover {
+    background-color: #FF6B35; /* Naranja oscuro */
+}
+
+/* Estilos para las Reseñas */
+#reseñas {
+    padding: 20px;
+    margin: 20px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#lista-reseñas {
+    margin-bottom: 20px;
+}
+
+.reseña {
+    border-bottom: 1px solid #DDDDDD;
+    padding: 10px 0;
+}
+
+.reseña h4 {
+    margin: 0;
+    color: #FF8C42; /* Naranja principal */
+}
+
+.reseña p {
+    margin: 5px 0;
+}
+
+#form-reseña {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#form-reseña label {
+    font-weight: bold;
+}
+
+#form-reseña input, #form-reseña select, #form-reseña textarea {
+    padding: 5px;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+}
+
+#form-reseña button {
+    background-color: #FF8C42; /* Naranja principal */
+    color: #FFFFFF;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#form-reseña button:hover {
+    background-color: #FF6B35; /* Naranja oscuro */
+}
+
+/* Animación al hacer hover sobre los productos */
+.product:hover, .offer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Animación al añadir productos al carrito */
+@keyframes bounce {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.product button:active, .offer button:active {
+    animation: bounce 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .filtros {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .product-grid, .offer-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .carousel-caption {
+        bottom: 10px;
+        left: 10px;
+        padding: 10px;
+    }
+
+    .carousel-caption h3 {
+        font-size: 1.2em;
+    }
+
+    .carousel-caption p {
+        font-size: 0.9em;
+    }
+
+    .carousel-caption button {
+        padding: 8px 15px;
+    }
+}
+
+/* Estilos para la Notificación */
+.notificacion {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #FF8C42; /* Naranja principal */
+    color: #FFFFFF;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+.notificacion.mostrar {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Estilos para la sección del carrito */
+.cart-section {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #FFFFFF;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    overflow-y: auto; /* Hacer el contenido desplazable */
+    z-index: 1000;
+}
+
+.cart-section h2 {
+    margin-top: 0;
+    color: #FF8C42; /* Naranja principal */
+}
+
+#cart-items {
+    margin-bottom: 20px;
+    max-height: calc(100vh - 200px); /* Limitar la altura del contenido */
+    overflow-y: auto; /* Hacer el contenido desplazable */
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #F4F4F4;
+    border-radius: 5px;
+}
+
+.cart-item button {
+    background-color: #FF6B35; /* Naranja oscuro */
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.cart-item button:hover {
+    background-color: #FF4500; /* Naranja más oscuro */
+}
+
+/* Estilos para el botón de Finalizar Compra */
+#finalizar-compra {
+    position: sticky;
+    bottom: 0;
+    background-color: #FFFFFF;
+    padding: 10px 0;
+    border-top: 1px solid #DDDDDD;
+    text-align: center;
+}
+
+#finalizar-compra button {
+    background-color: #FF8C42; /* Naranja principal */
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#finalizar-compra button:hover {
+    background-color: #FF6B35; /* Naranja oscuro */
+}
+
+/* Estilos para el Menú Hamburguesa */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger .line {
+    width: 25px;
+    height: 3px;
+    background-color: #FFFFFF;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+/* Menú Hamburguesa activo */
+.hamburger.active .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Estilos para el menú en móviles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #FF8C42; /* Naranja principal */
+        position: absolute;
+        top: 80px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        z-index: 1000;
+        padding: 10px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    .nav-links li a {
+        color: #FFFFFF;
+        font-size: 1.2em;
+        padding: 10px;
+        display: block;
+        transition: background-color 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+        background-color: #FF6B35; /* Naranja oscuro */
+    }
+}
+
+/* Estilos para el Menú Hamburguesa */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    position: fixed; /* Fijar en la pantalla */
+    top: 20px;
+    right: 20px;
+    z-index: 1001; /* Asegurar que esté por encima de otros elementos */
+}
+
+.hamburger .line {
+    width: 25px;
+    height: 3px;
+    background-color: #FFFFFF;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+/* Menú Hamburguesa activo */
+.hamburger.active .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Estilos para el menú en móviles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex; /* Siempre visible en móvil */
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #FF8C42; /* Naranja principal */
+        position: fixed; /* Fijar en la pantalla */
+        top: 80px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        z-index: 1000;
+        padding: 10px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    .nav-links li a {
+        color: #FFFFFF;
+        font-size: 1.2em;
+        padding: 10px;
+        display: block;
+        transition: background-color 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+        background-color: #FF6B35; /* Naranja oscuro */
+    }
+}
+
+/* Estilos para hacer que solo el menú, el encabezado y el logo sigan al usuario */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 140, 66, 0.9); /* Fondo semitransparente */
+    transition: all 0.3s ease;
+    z-index: 1050; /* Asegura que el menú no tape otras secciones */
+    padding: 8px 12px; /* Seguimos reduciendo el tamaño del menú */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    max-width: 55px; /* Reducimos aún más el logo */
+    height: auto;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 6px; /* Reducimos el espacio entre enlaces */
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9em; /* Reducimos el tamaño del texto */
+    transition: color 0.3s ease;
+    padding: 6px 10px; /* Reducimos el padding de los enlaces */
+}
+
+.nav-links li a:hover {
+    color: #FF6B35;
+}
+
+/* Ajuste para que las secciones no queden ocultas por el menú en pantallas grandes */
+body {
+    padding-top: 50px; /* Reducimos más el espacio del menú */
+}
+
+/* Asegurar que las notificaciones y botones estén por encima del menú */
+.notificacion, #cart-float {
+    z-index: 1100;
+}
+
+/* Mover notificaciones más abajo para que no se peguen al menú */
+.notificacion {
+    top: 70px !important; /* Ajustamos mejor la posición de la notificación */
+}
+
+/* Ajuste para que el carrito sea más pequeño */
+.cart-section {
+    top: 0;
+    height: 80vh; /* Reducimos la altura del carrito */
+    z-index: 1060;
+    padding-bottom: 20px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    right: 0;
+    width: 300px; /* Reducimos el ancho */
+    background-color: white;
+    display: none;
+    padding: 15px;
+    border-radius: 10px 0 0 10px; /* Bordes redondeados */
+}
+
+.cart-section.active {
+    display: block;
+}
+
+/* Botón para abrir/cerrar el carrito */
+#toggle-cart {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    background-color: #FF8C42;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    z-index: 1100;
+}
+
+#toggle-cart:hover {
+    background-color: #FF6B35;
+}
+
+/* Botón de cerrar el carrito */
+.close-cart {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #FF6B35;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    padding: 5px 8px;
+    border-radius: 5px;
+    display: block;
+    z-index: 1070;
+}
+
+.close-cart:hover {
+    background-color: #FF3D00;
+}
+
+/* Asegurar que el botón de finalizar compra sea visible */
+#finalizar-compra {
+    position: sticky;
+    bottom: 10px;
+    background-color: white;
+    padding: 6px;
+    border-top: 2px solid #ddd;
+    text-align: center;
+    z-index: 1070;
+}
