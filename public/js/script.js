@@ -541,9 +541,10 @@ document.getElementById('form-reseña').addEventListener('submit', function (eve
 // Cargar las reseñas al iniciar la página
 document.addEventListener('DOMContentLoaded', loadReseñas);
 // ----------------------------------------------------------------
+
 // Cargar productos desde el JSON
 function loadProductos() {
-    fetch('/productos.json')
+    fetch('data/productos.json')
         .then(response => response.json())
         .then(data => {
             const productGrid = document.getElementById('product-grid');
