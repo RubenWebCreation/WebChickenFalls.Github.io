@@ -1,0 +1,20 @@
+{
+  "name": "webchickenfalls",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RubenWebCreation/WebChickenFalls.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RubenWebCreation/WebChickenFalls/issues"
+  },
+  "homepage": "https://github.com/RubenWebCreation/WebChickenFalls#readme",
+  "description": ""
+}
