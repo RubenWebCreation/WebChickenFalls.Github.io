@@ -146,6 +146,13 @@
             "categoria": "alitas",
             "precio": 10.00,
             "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 22,
+            "nombre": "Alitas de Pollo Picantes",
+            "categoria": "alitas",
+            "precio": 9.50,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
         }
     ],
     "ofertas": [
@@ -251,6 +258,14 @@
             "categoria": "alitas",
             "precio": 11.00,
             "precioAnterior": 13.00,
+            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+        },
+        {
+            "id": 24,
+            "nombre": "Alitas de Pollo + Salsa BBQ",
+            "categoria": "alitas",
+            "precio": 10.00,
+            "precioAnterior": 12.00,
             "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
         }
     ]

@@ -1,4 +1,5 @@
 /* Estilos generales */
+
    /* Evitar desbordamiento horizontal en móviles */
    html, body {
     overflow-x: hidden; /* Oculta el desplazamiento horizontal */
@@ -27,39 +28,37 @@ html, body {
 }
 
 /* Encabezado */
-/* Estilos del menú principal */
 header {
-    position: fixed;
-    top: 0;
+    position: sticky;
+    top: 0; /* Se mantiene en la parte superior cuando haces scroll */
     left: 0;
     width: 100%;
-    background-color: #FF8C42;
-    z-index: 100;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 140, 66, 0.9);
+    transition: all 0.3s ease;
+    z-index: 100; /* Asegura que el menú no tape otras secciones */
+    padding: 8px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
 }
 
 /* Ajustar el margen superior del body */
 body {
-    padding-top: 80px; /* Ajusta este valor según la altura de tu menú */
+    padding-top: 100px; /* Ajusta este valor según la altura de tu menú */
 }
 
 /* Estilos del contenido */
 .contenido {
     position: relative;
-    z-index: 1;
+    z-index: 100;
 }
 
 /* Estilos del Rickroll */
 .rickroll {
     position: relative;
-    z-index: 50;
-}
-header {
-    background-color: #FF8C42; /* Naranja principal */
-    color: #FFFFFF;
-    padding: 20px 0;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 200;
 }
 
 .logo-container {
@@ -645,20 +644,7 @@ footer {
 }
 
 /* Estilos para hacer que solo el menú, el encabezado y el logo sigan al usuario */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(255, 140, 66, 0.9); /* Fondo semitransparente */
-    transition: all 0.3s ease;
-    z-index: 1050; /* Asegura que el menú no tape otras secciones */
-    padding: 8px 12px; /* Seguimos reduciendo el tamaño del menú */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+/* ------------------------------------------------------------------------------------------ */
 
 .logo-container {
     display: flex;
