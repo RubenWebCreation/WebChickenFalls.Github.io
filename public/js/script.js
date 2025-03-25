@@ -23,7 +23,7 @@ function updateCartUI() {
     const cartItems = document.getElementById('cart-items');
     cartItems.innerHTML = cart.map((item, index) => `
         <div class='cart-item'>
-            <span>${item.name} (x${item.quantity}) - $${(item.price * item.quantity).toFixed(2)}</span>
+            <span>${item.name} (x${item.quantity}) - €${(item.price * item.quantity).toFixed(2)}</span>
             <button onclick='removeFromCart(${index})'>Eliminar</button>
         </div>
     `).join('');
@@ -568,3 +568,140 @@ function loadProductos() {
 
 // Cargar productos al iniciar la página
 document.addEventListener('DOMContentLoaded', loadProductos);
+// ----------------------------------------------------------------
+// Función unificada para finalizar compra
+function confirmarPedido() {
+    if (cart.length === 0) {
+        mostrarNotificacion('Tu carrito está vacío.');
+        return;
+    }
+    
+    // Crear resumen detallado
+    let resumen = 'Resumen de tu pedido:\n\n';
+    cart.forEach(item => {
+        resumen += `• ${item.name} - ${item.quantity} x €${item.price.toFixed(2)} = €${(item.price * item.quantity).toFixed(2)}\n`;
+    });
+    
+    resumen += `\nTotal a pagar: €${total.toFixed(2)}\n\n`;
+    resumen += '¿Deseas confirmar el pedido?';
+    
+    if (confirm(resumen)) {
+        // Simular procesamiento de pago
+        mostrarNotificacion('Procesando pago...');
+        
+        setTimeout(() => {
+            mostrarNotificacion('¡Pedido confirmado! Gracias por tu compra.');
+            cart = [];
+            total = 0;
+            updateCartUI();
+            toggleCart();
+        }, 1500);
+    }
+}
+
+// Función para mostrar/ocultar carrito
+function toggleCart() {
+    const cartSection = document.getElementById('carrito');
+    if (cartSection.style.display === 'block') {
+        cartSection.style.display = 'none';
+    } else {
+        cartSection.style.display = 'block';
+    }
+}
+// ----------------------------------------------------------------
+function confirmarPedido() {
+    if (cart.length === 0) {
+        mostrarNotificacion('Tu carrito está vacío.');
+        return;
+    }
+    
+    // Mostrar resumen de compra
+    let mensaje = 'Resumen de tu pedido:\n\n';
+    cart.forEach(item => {
+        mensaje += `${item.name} (x${item.quantity}) - €${(item.price * item.quantity).toFixed(2)}\n`;
+    });
+    mensaje += `\nTotal: €${total.toFixed(2)}\n\n¿Confirmar compra?`;
+    
+    if (confirm(mensaje)) {
+        // Guardar los datos del carrito en localStorage para usarlos en la página de pago
+        localStorage.setItem('cart', JSON.stringify(cart));
+        localStorage.setItem('total', total.toFixed(2));
+        
+        mostrarNotificacion('¡Compra realizada con éxito! Redirigiendo a pago...');
+        
+        // Redirigir después de 2 segundos (para que se vea la notificación)
+        setTimeout(() => {
+            window.location.href = 'pago-tarjeta.html';
+        }, 2000);
+    }
+}
+// ----------------------------------------------------------------
+document.addEventListener('DOMContentLoaded', function() {
+    // Recuperar datos del carrito
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const total = localStorage.getItem('total') || '0.00';
+    
+    // Mostrar resumen en la página de pago
+    const resumenElement = document.getElementById('resumen-pedido');
+    if (resumenElement) {
+        let html = '<h3>Resumen de tu pedido:</h3><ul>';
+        cart.forEach(item => {
+            html += `<li>${item.name} (x${item.quantity}) - €${(item.price * item.quantity).toFixed(2)}</li>`;
+        });
+        html += `</ul><p><strong>Total: €${total}</strong></p>`;
+        resumenElement.innerHTML = html;
+    }
+});
+// ----------------------------------------------------------------
+// Modifica el setTimeout en confirmarPedido() así:
+setTimeout(() => {
+    // Efecto de desvanecimiento antes de redirigir
+    document.body.style.opacity = '0';
+    document.body.style.transition = 'opacity 0.5s ease';
+    
+    setTimeout(() => {
+        window.location.href = 'pago-tarjeta.html';
+    }, 500);
+}, 1500);
+// ----------------------------------------------------------------
+// Función para navegar con transición
+function navegarConTransicion(url) {
+    // Aplicar efecto de desvanecimiento
+    document.body.style.opacity = '0';
+    document.body.style.transition = 'opacity 0.5s ease';
+    
+    // Redirigir después de la animación
+    setTimeout(() => {
+        window.location.href = url;
+    }, 500);
+}
+
+// Aplicar a todos los links importantes
+document.addEventListener('DOMContentLoaded', function() {
+    // Links del menú principal
+    document.querySelectorAll('nav a').forEach(link => {
+        if (link.href && !link.href.includes('#')) { // Excluye anclas
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                navegarConTransicion(this.href);
+            });
+        }
+    });
+    
+    // Botón de volver al carrito (si estás en pago-tarjeta.html)
+    if (document.getElementById('volver-carrito')) {
+        document.getElementById('volver-carrito').addEventListener('click', function(e) {
+            e.preventDefault();
+            navegarConTransicion('index.html');
+        });
+    }
+});
+
+// Efecto de entrada al cargar la página
+window.onload = function() {
+    document.body.style.opacity = '0';
+    setTimeout(() => {
+        document.body.style.opacity = '1';
+        document.body.style.transition = 'opacity 0.5s ease';
+    }, 10);
+};

@@ -1764,3 +1764,180 @@ body {
         font-size: 0.9em; /* Reducir el tamaño de la fuente */
     }
 }
+/* --------------------------------------------------------------- */
+/* Estilos específicos para pago-tarjeta.html */
+#pago-tarjeta {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+#resumen-pedido {
+    background: #f8f8f8;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    border-left: 4px solid #FF8C42;
+}
+
+#resumen-pedido ul {
+    padding-left: 20px;
+}
+
+#resumen-pedido li {
+    margin-bottom: 8px;
+}
+
+#formulario-pago .form-group {
+    margin-bottom: 20px;
+}
+
+#formulario-pago label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+}
+
+#formulario-pago input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+#formulario-pago button {
+    background: #FF8C42;
+    color: white;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+#formulario-pago button:hover {
+    background: #FF6B35;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(255,140,66,0.3);
+}
+/* ----------------------------------------------------------------- */
+.pago-exitoso {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+
+.pago-exitoso-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    animation: fadeInUp 0.5s;
+}
+
+.pago-exitoso-icon {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 50%;
+    font-size: 30px;
+    line-height: 60px;
+    margin-bottom: 20px;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* -------------------------------------------------------------- */
+/* Estilos para el botón de volver */
+.pago-header {
+    position: relative;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.btn-volver {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #FF8C42;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.btn-volver:hover {
+    background: #f5f5f5;
+    color: #FF6B35;
+}
+
+.btn-volver::before {
+    content: "";
+    margin-right: 5px;
+}
+
+@media (max-width: 768px) {
+    .pago-header {
+        text-align: left;
+        padding-left: 40px;
+    }
+    
+    .btn-volver {
+        position: static;
+        transform: none;
+        margin-bottom: 15px;
+    }
+}
+
+.btn-volver-alternativo {
+    background: #f5f5f5;
+    border: 2px solid #FF8C42;
+    color: #FF8C42;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 20px;
+    transition: all 0.3s;
+}
+
+.btn-volver-alternativo:hover {
+    background: #FF8C42;
+    color: white;
+    transform: translateX(-5px);
+}

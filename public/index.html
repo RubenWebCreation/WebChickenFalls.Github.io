@@ -25,7 +25,7 @@
                     </a>
                 </li>
             </ul>
-            <div class="hamburger" id="hamburger" onclick="toggleMenu()"></div>
+            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
                 <div class="line"></div>
                 <div class="line"></div>
                 <div class="line"></div>
@@ -50,7 +50,7 @@
         <button class="carousel-control next" onclick="moveCarousel(1)">&#10095;</button>
     </div>
      </section>
-
+     
      <!-- Sección de Filtrado -->
      <section id="filtrado">
         <h2>Filtrar Productos</h2>
@@ -79,16 +79,15 @@
      </section>
 
     <!-- Sección del carrito -->
-<section id="carrito" class="cart-section">
-    <h2>Tu Carrito</h2>
-    <button id="close-cart" class="close-cart" onclick="toggleCart()">✖</button>
-    <div id="cart-items">
-        <!-- Los productos añadidos al carrito aparecerán aquí -->
-    </div>
-    <p>Total: €<span id="cart-total">0.00</span></p>
-    <button id="finalizar-compra" onclick="checkout()">Finalizar Compra</button>
-</section>
-
+    <section id="carrito" class="cart-section">
+        <h2>Tu Carrito</h2>
+        <button id="close-cart" class="close-cart" onclick="toggleCart()">✖</button>
+        <div id="cart-items">
+            <!-- Productos añadidos aparecerán aquí -->
+        </div>
+        <p>Total: €<span id="cart-total">0.00</span></p>   
+        <button id="finalizar-compra" onclick="confirmarPedido()">Finalizar Compra</button>
+    </section>
 
   <!-- Sección de Reseñas -->
 <section id="reseñas">
@@ -191,5 +190,12 @@
     </footer>
     
     <script src="js/script.js"></script>
+    
+    <script>
+        // Evitar parpadeo inicial
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.className = 'cargando';
+        });
+    </script>
 </body>
 </html>
