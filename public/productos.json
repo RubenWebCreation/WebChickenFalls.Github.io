@@ -2,10 +2,10 @@
     "productos": [
         {
             "id": 1,
-            "nombre": "Pollo Entero",
-            "categoria": "pollo",
+            "nombre": "Ensalada",
+            "categoria": "ensalada",
             "precio": 10.00,
-            "imagen": "https://comedera.com/wp-content/uploads/sites/9/2018/08/pollo-frito.jpg?resize=1316,740&quality=80"
+            "imagen": "./images/Friken-1.png"
         },
         {
             "id": 2,
